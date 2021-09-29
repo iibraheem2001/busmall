@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun with Charts!</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <canvas id="my-chart"></canvas>
+  <script>
+    const ctx = document.getElementById('my-chart').getContext('2d');
+    const voteData = ['5','12','4','11','16','10','3','4','8','5','14','9','11','7','16','13','11','8','8'];
+    const voteLabels = ['Bag', 'Banana', 'Bathroom', 'Boots', 'Breakfast', 'Bubblegum', 'Chair','Dragon','Pen','Pet Sweep','Scissors','Shark','Sweep','Unicorn','Wine Glass'];
+    const colors = ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)',
+'rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(211, 264, 21, 0.5)'];
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: voteLabels,
+        datasets: [{
+            label: '# of Votes',
+            data: voteData,
+            backgroundColor: colors,
+            borderWidth: 5
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+  });
+  </script>
+</body>
+</html>
